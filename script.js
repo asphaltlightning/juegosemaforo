@@ -63,7 +63,7 @@ document.getElementById("clickArea").addEventListener("click", () => {
     const email = document.getElementById("playerEmail").value;
 
     // Enviar al backend o Google Sheets (reemplaza URL con tu webhook de Sheets)
-    fetch("https://script.google.com/macros/s/TU_SCRIPT_ID/exec", {
+    fetch("https://script.google.com/macros/s/AKfycbx3MP7rW8muIMOge-yhU_G3IqPiDwie8LNnwLKMalQhJQVLOokob2JAgjSYhqA54Z_5CQ/exec", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ name, email, reactionTime })
