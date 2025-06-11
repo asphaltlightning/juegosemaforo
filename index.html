@@ -33,5 +33,27 @@
     </div>
     <audio id="beep" src="beep.mp3" preload="auto"></audio>
     <script src="script.js"></script>
+    <h2>🏁 Top 10 Mejores Tiempos</h2>
+<ul id="leaderboard"></ul>
+    <script>
+  const API_URL = 'https://script.google.com/macros/s/AKfycbykTpA-GsxZhwoB-edLtUly1W2C-s-a_PBYy3wAl3Gc1YbJlQfQXPwOwxmt8qAVABSA4w/exec'; // tu URL de Apps Script
+
+  async function fetchTop10() {
+    try {
+      const res = await fetch(API_URL);
+      const data = await res.json();
+      const ul = document.getElementById('leaderboard');
+      ul.innerHTML = '';
+      data.forEach((item, idx) => {
+        ul.innerHTML += `<li>#${idx + 1} – ${item.nombre}: ${item.tiempo} ms</li>`;
+      });
+    } catch (error) {
+      console.error('Error al cargar ranking:', error);
+    }
+  }
+
+  fetchTop10();
+  setInterval(fetchTop10, 10000); // refresca cada 10 segundos
+     </script>
 </body>
 </html>
